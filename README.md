@@ -20,7 +20,7 @@ yo shadow-reframe-firebase-materialui
 
 ## License
 
-MIT © [Pawel Kapala](kapware.com)
+MIT © [Pawel Kapala](https://kapware.com)
 
 
 [npm-image]: https://badge.fury.io/js/generator-shadow-reframe-firebase-materialui.svg
