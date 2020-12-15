@@ -2,8 +2,8 @@
   "scripts": {
     "clean": "shx rm -rf dist && shx rm -rf public/js",
     "dist:mkdir": "shx mkdir -p dist/{js,css,img}",
-    "dist:js": "shadow-cljs release prod && shx cp public/js/main.js dist/js/main.js && shx cp public/service-worker.js dist/service-worker.js",
-    "dist:html": "shx cp public/index.html dist/ && shx cp public/manifest.webapp.json dist/",
+    "dist:js": "shadow-cljs release prod && shx cp public/js/main.js dist/js/main.js && shx cp public/service-worker.js dist/service-worker.js || :",
+    "dist:html": "shx cp public/index.html dist/ && shx cp public/manifest.webapp.json dist/ || :",
     "dist:img": "shx cp -R public/img/* dist/img",
     "dist:css": "node-sass-chokidar --include-path ./src/css/ --include-path ./node_modules src/ -o dist/",
     "build-css": "node-sass-chokidar --include-path ./src/css/ --include-path ./node_modules src/ -o public/",
