@@ -78,6 +78,7 @@ module.exports = class extends Generator {
     this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('.gitignore'), {
         name: this.props.name
     });
+    this.fs.copy(this.templatePath('_npmrc'), this.destinationPath('.npmrc'));
     this.fs.copy(this.templatePath('README.md'), this.destinationPath('README.md'));
     this.fs.copy(this.templatePath('yarn.lock'), this.destinationPath('yarn.lock'));
     this.fs.copy(this.templatePath('firebase.json'), this.destinationPath('firebase.json'));

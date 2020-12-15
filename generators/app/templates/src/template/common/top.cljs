@@ -1,6 +1,5 @@
-(ns <%= name %>.components.top
-  (:require [re-frame.core :refer [subscribe dispatch]]
-            [reagent.core :as r]
+(ns <%= name %>.common.top
+  (:require [re-frame.core :as re-frame]
             ["@material-ui/core/AppBar" :default AppBar]
             ["@material-ui/core/Toolbar" :default Toolbar]
             ["@material-ui/core/IconButton" :default IconButton]
@@ -10,23 +9,25 @@
             ["@material-ui/core/List" :default List]
             ["@material-ui/core/Avatar" :default Avatar]
             ["@material-ui/core/ListItem" :default ListItem]
-            [<%= name %>.fb.auth :refer [sign-in-with-google sign-out]]))
+            [<%= name %>.firebase.auth :as firebase.auth]))
 
 (defn login []
   (let []
     (fn []
       [:div
-       [:> Button {:color "inherit" :on-click #(sign-in-with-google)} "Zaloguj"]])))
+       [:> Button {:color "inherit" :on-click #(firebase.auth/sign-in-with-google)} "Login"]])))
+
 
 (defn logged-in-user-pane [user]
   (let []
     (fn []
       [:div.right-pane
-       [:> IconButton {:id "avatar-button" :on-click #(sign-out)}
+       [:> IconButton {:id "avatar-button" :on-click #(firebase.auth/sign-out)}
         [:> Avatar {:src (:photo @user) :alt (:name @user)}]]])))
 
+
 (defn bar []
-  (let [user (subscribe [:user])]
+  (let [user (re-frame/subscribe [:user])]
     (fn []
       [:div
        [:> AppBar {:position "fixed" :class "top-bar"}

@@ -1,10 +1,10 @@
 (ns <%= name %>.fb.storage
   (:require
    ["firebase" :refer [storage]]
-   [oops.core :refer [ocall]]))
+   [oops.core :as oops]))
 
 (defn storage-ref [path]
-  (.ref (storage) path))
+  (.ref (oops/storage) path))
 
 (defn save! [path file metadata]
-  (ocall (storage-ref path) "put" file metadata))
+  (oops/ocall (storage-ref path) "put" file metadata))
