@@ -75,6 +75,9 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    this.fs.copyTpl(this.templatePath('_gitignore'), this.destinationPath('.gitignore'), {
+        name: this.props.name
+    });
     this.fs.copy(this.templatePath('README.md'), this.destinationPath('README.md'));
     this.fs.copy(this.templatePath('yarn.lock'), this.destinationPath('yarn.lock'));
     this.fs.copy(this.templatePath('firebase.json'), this.destinationPath('firebase.json'));
@@ -95,10 +98,10 @@ module.exports = class extends Generator {
         firebaseAppId: this.props.firebaseAppId
     });
     this.fs.copyTpl( this.templatePath('package.json'), this.destinationPath('package.json'), {
-        name: this.props.name	    
+        name: this.props.name
     });
     this.fs.copyTpl( this.templatePath('shadow-cljs.edn'), this.destinationPath('shadow-cljs.edn'), {
-        name: this.props.name	    
+        name: this.props.name
     });
 
 

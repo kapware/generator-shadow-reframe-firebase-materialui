@@ -1,0 +1,15 @@
+/*.log
+/target
+/*-init.clj
+/resources/public/js/compiled
+/src/<%= name %>/config.cljs
+out
+.firebase
+node_modules
+.lein-repl-history
+.nrepl-port
+.shadow-cljs
+.yo-rc.json
+dist
+public/js
+public/manifest.webapp.json
